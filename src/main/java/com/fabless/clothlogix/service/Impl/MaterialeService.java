@@ -4,16 +4,18 @@ package com.fabless.clothlogix.service.Impl;
 
 import com.fabless.clothlogix.Entity.MaterialeEntity;
 import com.fabless.clothlogix.DAO.MaterialeDAO;
+import com.fabless.clothlogix.service.AbstractMaterialeService;
 import org.hibernate.exception.DataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class MaterialeService {
+public class MaterialeService implements AbstractMaterialeService {
 
     private MaterialeDAO repo;
 
@@ -23,7 +25,7 @@ public class MaterialeService {
     }
 
 
-    public Iterable<MaterialeEntity> findAll(Map<String, Object> risposta) throws DataException {
+    public List<MaterialeEntity> findAll(Map<String, Object> risposta) throws DataException {
         return repo.getListMateriale(risposta);
     }
 
@@ -36,7 +38,7 @@ public class MaterialeService {
     }
 
     @Transactional
-    public void upload(MaterialeEntity materialeEntity, Map<String, Object> risposta) throws  DataException{
+    public void update(MaterialeEntity materialeEntity, Map<String, Object> risposta) throws  DataException{
         repo.aggiornaMateriale(materialeEntity,risposta);
     }
     @Transactional

@@ -23,9 +23,6 @@ public class MaterialeEntity {
     @Column(name = "descrizione")
     private String descrizione;
 
-    @JsonBackReference
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "materiali")
-    private Set<ProdottoEntity> prodotto ;
 
     public MaterialeEntity() {
     }

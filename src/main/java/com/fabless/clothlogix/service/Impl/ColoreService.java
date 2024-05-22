@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
@@ -23,7 +24,7 @@ public class ColoreService implements AbstractColoreService {
         this.repo = repo;
     }
 
-    public Iterable<ColoreEntity> findAll(Map<String, Object> risposta) throws DataException {
+    public List<ColoreEntity> findAll(Map<String, Object> risposta) throws DataException {
         return repo.getListColore(risposta);
     }
 
@@ -36,7 +37,7 @@ public class ColoreService implements AbstractColoreService {
     }
 
     @Transactional
-    public void upload(ColoreEntity coloreEntity, Map<String, Object> risposta) throws  DataException{
+    public void update(ColoreEntity coloreEntity, Map<String, Object> risposta) throws  DataException{
           repo.aggiornaColore(coloreEntity,risposta);
     }
     @Transactional

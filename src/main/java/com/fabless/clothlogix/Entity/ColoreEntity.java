@@ -2,6 +2,7 @@ package com.fabless.clothlogix.Entity;
 
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -24,9 +25,6 @@ public class ColoreEntity {
     @Column(name =  "descrizione")
     private String descrizione;
 
-    @JsonBackReference
-    @ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, mappedBy = "colori")
-    private Set<ProdottoEntity> prodotto ;
 
     public ColoreEntity() {}
 
