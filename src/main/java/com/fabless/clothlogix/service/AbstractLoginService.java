@@ -17,7 +17,7 @@ public interface AbstractLoginService {
 
     void create(LoginEntity coloreEntity, Map<String, Object> risposta) throws DataException;
 
-    void upload(LoginEntity coloreEntity, Map<String, Object> risposta) throws  DataException;
+    void update(LoginEntity coloreEntity, Map<String, Object> risposta) throws  DataException;
 
     void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
 }

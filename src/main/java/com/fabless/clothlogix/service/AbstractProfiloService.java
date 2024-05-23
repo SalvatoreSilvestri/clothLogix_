@@ -18,7 +18,7 @@ public interface AbstractProfiloService {
 
     void create(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws DataException;
 
-    void upload(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws  DataException;
+    void update(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws  DataException;
 
     void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
 }

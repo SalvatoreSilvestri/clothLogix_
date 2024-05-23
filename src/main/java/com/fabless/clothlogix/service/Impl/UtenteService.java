@@ -4,6 +4,7 @@ package com.fabless.clothlogix.service.Impl;
 
 import com.fabless.clothlogix.Entity.UtenteEntity;
 import com.fabless.clothlogix.DAO.UtenteDAO;
+import com.fabless.clothlogix.service.AbstractUtenteService;
 import org.hibernate.exception.DataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class UtenteService {
+public class UtenteService implements AbstractUtenteService {
 
     private UtenteDAO repo;
 
@@ -36,7 +37,7 @@ public class UtenteService {
     }
 
     @Transactional
-    public void upload(UtenteEntity utenteEntity, Map<String, Object> risposta) throws DataException{
+    public void update(UtenteEntity utenteEntity, Map<String, Object> risposta) throws DataException{
         repo.aggiornaUtente(utenteEntity,risposta);
     }
     @Transactional

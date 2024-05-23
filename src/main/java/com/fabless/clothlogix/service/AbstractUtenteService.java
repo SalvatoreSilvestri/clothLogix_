@@ -17,7 +17,7 @@ public interface AbstractUtenteService {
 
     void create(UtenteEntity utenteEntity, Map<String, Object> risposta) throws DataException;
 
-    void upload(UtenteEntity utenteEntity, Map<String, Object> risposta) throws  DataException;
+    void update(UtenteEntity utenteEntity, Map<String, Object> risposta) throws  DataException;
 
     void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
 }
