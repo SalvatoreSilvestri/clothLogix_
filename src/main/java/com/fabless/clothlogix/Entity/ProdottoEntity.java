@@ -40,13 +40,6 @@ public class ProdottoEntity {
     @Column(name = "taglia", nullable = false)
     private Taglia taglia;
 
-    /*@JsonManagedReference
-    @ManyToOne
-    @JoinTable(
-    name = "prodotto_colore_rel",
-            joinColumns = @JoinColumn(name = "id_prodotto"))
-    private Set<ColoreEntity> colori;
-*/
 
     @ManyToOne
     @JoinColumn(name = "id_colore")

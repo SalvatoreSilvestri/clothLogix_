@@ -5,6 +5,7 @@ package com.fabless.clothlogix.service.Impl;
 
 import com.fabless.clothlogix.Entity.ProdottoEntity;
 import com.fabless.clothlogix.DAO.ProdottoDAO;
+import com.fabless.clothlogix.service.AbstractProdottoService;
 import org.hibernate.exception.DataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,7 +15,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class ProdottoService {
+public class ProdottoService implements AbstractProdottoService {
 
     private ProdottoDAO repo;
 
@@ -37,7 +38,7 @@ public class ProdottoService {
     }
 
     @Transactional
-    public void upload(ProdottoEntity prodottoEntity, Map<String, Object> risposta) throws  DataException{
+    public void update(ProdottoEntity prodottoEntity, Map<String, Object> risposta) throws  DataException{
         repo.aggiornaProdotto(prodottoEntity,risposta);
     }
     @Transactional

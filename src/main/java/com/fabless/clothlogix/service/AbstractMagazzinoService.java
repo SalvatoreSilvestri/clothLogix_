@@ -17,7 +17,7 @@ public interface AbstractMagazzinoService {
 
     void create(MagazzinoEntity magazzinoEntity, Map<String, Object> risposta) throws DataException;
 
-    void upload(MagazzinoEntity magazzinoEntity, Map<String, Object> risposta) throws  DataException;
+    void update(MagazzinoEntity magazzinoEntity, Map<String, Object> risposta) throws  DataException;
 
     void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
 }

@@ -4,6 +4,7 @@ package com.fabless.clothlogix.service.Impl;
 
 import com.fabless.clothlogix.Entity.ProfiloEntity;
 import com.fabless.clothlogix.DAO.ProfiloDAO;
+import com.fabless.clothlogix.service.AbstractProfiloService;
 import org.hibernate.exception.DataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,7 +14,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Service
-public class ProfiloService {
+public class ProfiloService implements AbstractProfiloService {
 
     private ProfiloDAO repo;
 
@@ -36,7 +37,7 @@ public class ProfiloService {
     }
 
     @Transactional
-    public void upload(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws  DataException{
+    public void update(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws  DataException{
         repo.aggiornaProfilo(profiloEntity,risposta);
     }
     @Transactional

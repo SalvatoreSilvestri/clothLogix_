@@ -17,7 +17,7 @@ public interface AbstractProdottoService {
 
     void create(ProdottoEntity prodottoEntity, Map<String, Object> risposta) throws DataException;
 
-    void upload(ProdottoEntity prodottoEntity, Map<String, Object> risposta) throws DataException;
+    void update(ProdottoEntity prodottoEntity, Map<String, Object> risposta) throws DataException;
 
     void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
 }

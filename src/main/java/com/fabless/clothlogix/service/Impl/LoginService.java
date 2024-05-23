@@ -5,6 +5,7 @@ package com.fabless.clothlogix.service.Impl;
 
 import com.fabless.clothlogix.Entity.LoginEntity;
 import com.fabless.clothlogix.DAO.LoginDAO;
+import com.fabless.clothlogix.service.AbstractLoginService;
 import org.hibernate.exception.DataException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,7 +16,7 @@ import java.util.Optional;
 
 
 @Service
-public class LoginService {
+public class LoginService implements AbstractLoginService {
 
     private LoginDAO repo;
 
@@ -37,7 +38,7 @@ public class LoginService {
     }
 
     @Transactional
-    public void upload(LoginEntity loginEntity, Map<String, Object> risposta) throws  DataException{
+    public void update(LoginEntity loginEntity, Map<String, Object> risposta) throws  DataException{
         repo.aggiornaLogin(loginEntity,risposta);
     }
     @Transactional

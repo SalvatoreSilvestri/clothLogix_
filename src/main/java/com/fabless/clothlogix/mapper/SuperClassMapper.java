@@ -3,8 +3,10 @@ package com.fabless.clothlogix.mapper;
 
 import com.fabless.clothlogix.DTO.ColoreDTO;
 import com.fabless.clothlogix.DTO.MaterialeDTO;
+import com.fabless.clothlogix.DTO.SezioneDTO;
 import com.fabless.clothlogix.Entity.ColoreEntity;
 import com.fabless.clothlogix.Entity.MaterialeEntity;
+import com.fabless.clothlogix.Entity.SezioneEntity;
 import org.mapstruct.Mapper;
 
 import java.util.ArrayList;
@@ -42,6 +44,24 @@ public interface SuperClassMapper {
                 materialeDTOs.add(toMaterialeDTO(materialeEntity));
             }
             return materialeDTOs;
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+    //SEZIONE
+    SezioneDTO toSezioneDTO(SezioneEntity sezioneEntity);
+
+    SezioneEntity toSezioneEntity(SezioneDTO sezioneDTO);
+
+    default List<SezioneDTO> toSezioneDTOs(Iterable<SezioneEntity> list) {
+        try {
+            List<SezioneDTO> sezioneDTOs = new ArrayList<>();
+            for (SezioneEntity sezioneEntity : list) {
+                sezioneDTOs.add(toSezioneDTO(sezioneEntity));
+            }
+            return sezioneDTOs;
         } catch (IllegalArgumentException e) {
             System.err.println(e.getMessage());
             return new ArrayList<>();
