@@ -37,6 +37,5 @@ public class ColoreDTO {
         this.descrizione = descrizione;
     }
 
-    // Metodo toString per rappresentazione testuale, utile per il debugging
 
 }
