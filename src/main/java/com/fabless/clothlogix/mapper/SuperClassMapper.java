@@ -10,6 +10,7 @@ import com.fabless.clothlogix.Entity.MaterialeEntity;
 import com.fabless.clothlogix.Entity.ProdottoEntity;
 import com.fabless.clothlogix.Entity.SezioneEntity;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -35,6 +36,7 @@ public interface SuperClassMapper {
         }
     }
     //MATERIALE
+
     MaterialeDTO toMaterialeDTO(MaterialeEntity materialeEntity);
 
     MaterialeEntity toMaterialeEntity(MaterialeDTO materialeDTO);
@@ -53,6 +55,7 @@ public interface SuperClassMapper {
     }
 
     //SEZIONE
+
     SezioneDTO toSezioneDTO(SezioneEntity sezioneEntity);
 
     SezioneEntity toSezioneEntity(SezioneDTO sezioneDTO);
@@ -74,7 +77,8 @@ public interface SuperClassMapper {
 
     //Prodotto
     ProdottoDTO toProdottoDTO(ProdottoEntity prodottoEntity);
-
+    @Mapping(source = "sezione.fila", target = "sezione.fila")
+    @Mapping(source = "sezione.scaffale", target = "sezione.scaffale")
     ProdottoEntity toProdottoEntity(ProdottoDTO prodottoDTO);
 
     default List<ProdottoDTO> toProdottoDTOs(Iterable<ProdottoEntity> list) {

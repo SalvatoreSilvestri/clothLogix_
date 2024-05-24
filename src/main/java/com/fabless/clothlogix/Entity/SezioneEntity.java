@@ -27,11 +27,11 @@ public class SezioneEntity {
     @Column(name =  "fila")
     private String fila;
 
-
+/*
 //    @JsonManagedReference("prodotto-sezione")
     @OneToMany(mappedBy = "sezione", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<ProdottoEntity> prodotto;
-
+*/
 
     public SezioneEntity(){}
 

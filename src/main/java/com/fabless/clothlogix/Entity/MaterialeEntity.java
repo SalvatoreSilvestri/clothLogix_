@@ -23,11 +23,11 @@ public class MaterialeEntity {
 
     @Column(name = "descrizione")
     private String descrizione;
-
+/*
 //    @JsonBackReference("prodotto-materiali")
     @ManyToMany(mappedBy = "materiali", cascade = CascadeType.ALL)
     private Set<ProdottoEntity> prodotti;
-
+*/
 
     public MaterialeEntity() {
     }
