@@ -1,5 +1,6 @@
 package com.fabless.clothlogix.Entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -26,8 +27,9 @@ public class SezioneEntity {
     @Column(name =  "fila")
     private String fila;
 
-    @JsonManagedReference
-    @OneToMany(mappedBy = "sezioni", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+
+//    @JsonManagedReference("prodotto-sezione")
+    @OneToMany(mappedBy = "sezione", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Set<ProdottoEntity> prodotto;
 
 

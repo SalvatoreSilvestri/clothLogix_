@@ -3,9 +3,11 @@ package com.fabless.clothlogix.mapper;
 
 import com.fabless.clothlogix.DTO.ColoreDTO;
 import com.fabless.clothlogix.DTO.MaterialeDTO;
+import com.fabless.clothlogix.DTO.ProdottoDTO;
 import com.fabless.clothlogix.DTO.SezioneDTO;
 import com.fabless.clothlogix.Entity.ColoreEntity;
 import com.fabless.clothlogix.Entity.MaterialeEntity;
+import com.fabless.clothlogix.Entity.ProdottoEntity;
 import com.fabless.clothlogix.Entity.SezioneEntity;
 import org.mapstruct.Mapper;
 
@@ -67,6 +69,31 @@ public interface SuperClassMapper {
             return new ArrayList<>();
         }
     }
+
+
+
+    //Prodotto
+    ProdottoDTO toProdottoDTO(ProdottoEntity prodottoEntity);
+
+    ProdottoEntity toProdottoEntity(ProdottoDTO prodottoDTO);
+
+    default List<ProdottoDTO> toProdottoDTOs(Iterable<ProdottoEntity> list) {
+        try {
+            List<ProdottoDTO> prodottoDTOs = new ArrayList<>();
+            for (ProdottoEntity prodottoEntity : list) {
+                prodottoDTOs.add(toProdottoDTO(prodottoEntity));
+            }
+            return prodottoDTOs;
+        } catch (IllegalArgumentException e) {
+            System.err.println(e.getMessage());
+            return new ArrayList<>();
+        }
+    }
+
+
+
+
+
 
 
 }

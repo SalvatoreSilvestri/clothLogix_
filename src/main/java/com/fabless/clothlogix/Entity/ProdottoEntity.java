@@ -3,6 +3,7 @@ package com.fabless.clothlogix.Entity;
 
 import com.fabless.clothlogix.Entity.enums.Taglia;
 import com.fabless.clothlogix.Entity.enums.Tipo;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.Getter;
@@ -45,20 +46,24 @@ public class ProdottoEntity {
     @JoinColumn(name = "id_colore")
     private ColoreEntity colore;
 
-
-    @OneToMany
-    @JoinColumn(name = "id_materiale")
+//    @JsonManagedReference("prodotto-materiali")
+    @ManyToMany
+    @JoinTable(
+            name = "prodotto_materiale_rel",
+            joinColumns = @JoinColumn(name = "id_prodotto"),
+            inverseJoinColumns = @JoinColumn(name = "id_materiale")
+    )
     private Set<MaterialeEntity> materiali;
 
-
+//    @JsonBackReference("prodotto-sezione")
     @ManyToOne
     @JoinColumn(name = "id_sezione")
-    private SezioneEntity sezioni;
+    private SezioneEntity sezione;
 
 
     public ProdottoEntity() {}
 
-    public ProdottoEntity(Long id, String descrizione, Integer prezzo, String codiceProdotto, Tipo tipo, Taglia taglia, ColoreEntity colore, Set<MaterialeEntity> materiali, SezioneEntity sezioni) {
+    public ProdottoEntity(Long id, String descrizione, Integer prezzo, String codiceProdotto, Tipo tipo, Taglia taglia, ColoreEntity colore, Set<MaterialeEntity> materiali, SezioneEntity sezione) {
         this.id = id;
         this.descrizione = descrizione;
         this.prezzo = prezzo;
@@ -67,7 +72,7 @@ public class ProdottoEntity {
         this.taglia = taglia;
         this.colore = colore;
         this.materiali = materiali;
-        this.sezioni = sezioni;
+        this.sezione = sezione;
     }
 }
 

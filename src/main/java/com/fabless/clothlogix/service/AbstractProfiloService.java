@@ -6,13 +6,14 @@ package com.fabless.clothlogix.service;
 import com.fabless.clothlogix.Entity.ProfiloEntity;
 import org.hibernate.exception.DataException;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 
 public interface AbstractProfiloService {
 
-    Iterable<ProfiloEntity> findAll(Map<String, Object> risposta) throws DataException;
+    List<ProfiloEntity> findAll(Map<String, Object> risposta) throws DataException;
 
     Optional<ProfiloEntity> findById(Long id, Map<String, Object> risposta) throws DataException;
 

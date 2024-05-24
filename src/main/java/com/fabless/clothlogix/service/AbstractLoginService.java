@@ -6,12 +6,13 @@ package com.fabless.clothlogix.service;
 import com.fabless.clothlogix.Entity.LoginEntity;
 import org.hibernate.exception.DataException;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 
 public interface AbstractLoginService {
 
-    Iterable<LoginEntity> findAll(Map<String, Object> risposta) throws DataException;
+    List<LoginEntity> findAll(Map<String, Object> risposta) throws DataException;
 
     Optional<LoginEntity> findById(Long id, Map<String, Object> risposta) throws DataException;
 

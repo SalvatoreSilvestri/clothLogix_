@@ -21,7 +21,6 @@ import java.util.Optional;
 @RequestMapping("/colore")
 public class ColoreController {
 
-
     private final AbstractColoreService coloreService;
     private final SuperClassMapper superClassMapper;
 
