@@ -1,11 +1,4 @@
 package com.fabless.clothlogix.DAO;
-
-
-
-
-
-
-
 import com.fabless.clothlogix.Entity.ProdottoEntity;
 
 import java.util.List;

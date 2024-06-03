@@ -12,14 +12,8 @@ import java.util.Optional;
 
 
 public interface AbstractProfiloService {
+    ProfiloEntity findById(Long id);
+    List<ProfiloEntity> findAll();
+    void update(ProfiloEntity profilo);
 
-    List<ProfiloEntity> findAll(Map<String, Object> risposta) throws DataException;
-
-    Optional<ProfiloEntity> findById(Long id, Map<String, Object> risposta) throws DataException;
-
-    void create(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws DataException;
-
-    void update(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws  DataException;
-
-    void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
 }

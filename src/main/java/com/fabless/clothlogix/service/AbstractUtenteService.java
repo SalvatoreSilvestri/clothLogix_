@@ -12,13 +12,5 @@ import java.util.Optional;
 
 public interface AbstractUtenteService {
 
-    List<UtenteEntity> findAll(Map<String, Object> risposta) throws DataException;
-
-    Optional<UtenteEntity> findById(Long id, Map<String, Object> risposta) throws DataException;
-
-    void create(UtenteEntity utenteEntity, Map<String, Object> risposta) throws DataException;
-
-    void update(UtenteEntity utenteEntity, Map<String, Object> risposta) throws  DataException;
-
-    void deleteByid(Long id, Map<String, Object> risposta) throws  DataException;
+    UtenteEntity findByUsername(String username);
 }

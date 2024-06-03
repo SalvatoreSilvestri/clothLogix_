@@ -23,26 +23,11 @@ public class UtenteService implements AbstractUtenteService {
     public  UtenteService(UtenteDAO repo){
         this.repo = repo;
     }
+    @Autowired
+    private UtenteDAO utenteDao;
 
-
-    public List<UtenteEntity> findAll(Map<String, Object> risposta) throws DataException {
-        return repo.getListUtente(risposta);
-    }
-
-    public Optional<UtenteEntity> findById(Long id,Map<String, Object> risposta) throws DataException{
-        return repo.utenteFindById(id, risposta);
-    }
-    @Transactional
-    public void create(UtenteEntity utenteEntity, Map<String, Object> risposta) throws DataException{
-        repo.inserisciUtente(utenteEntity,risposta);
-    }
-
-    @Transactional
-    public void update(UtenteEntity utenteEntity, Map<String, Object> risposta) throws DataException{
-        repo.aggiornaUtente(utenteEntity,risposta);
-    }
-    @Transactional
-    public void deleteByid(Long id, Map<String, Object> risposta) throws  DataException{
-        repo.eliminaUtente(id, risposta);
+    @Override
+    public UtenteEntity findByUsername(String username) {
+        return utenteDao.findByUsername(username);
     }
 }

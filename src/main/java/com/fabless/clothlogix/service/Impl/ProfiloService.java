@@ -17,32 +17,23 @@ import java.util.Optional;
 @Service
 public class ProfiloService implements AbstractProfiloService {
 
-    private ProfiloDAO repo;
-
     @Autowired
-    public  ProfiloService(ProfiloDAO repo){
-        this.repo = repo;
+    private ProfiloDAO profiliDao;
+
+    @Override
+    public ProfiloEntity findById(Long id) {
+        return profiliDao.findById(id);
+    }
+
+    @Override
+    public List<ProfiloEntity> findAll() {
+        return profiliDao.findAll();
     }
 
 
-    public List<ProfiloEntity> findAll(Map<String, Object> risposta) throws DataException {
-        return repo.getListProfilo(risposta);
+    @Override
+    public void update(ProfiloEntity profilo) {
+        profiliDao.update(profilo);
     }
 
-    public Optional<ProfiloEntity> findById(Long id,Map<String, Object> risposta) throws DataException{
-        return repo.profiloFindById(id, risposta);
-    }
-    @Transactional
-    public void create(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws DataException{
-        repo.inserisciProfilo(profiloEntity,risposta);
-    }
-
-    @Transactional
-    public void update(ProfiloEntity profiloEntity, Map<String, Object> risposta) throws  DataException{
-        repo.aggiornaProfilo(profiloEntity,risposta);
-    }
-    @Transactional
-    public void deleteByid(Long id, Map<String, Object> risposta) throws DataException{
-        repo.eliminaProfilo(id, risposta);
-    }
 }
